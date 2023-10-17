@@ -18,12 +18,12 @@ Segundo diretório é uma página web criada apenas com HTML, CSS e Bootstrap co
 - Um banner como se fosse uma propagranda do web site;
 - Um container de cards a respeito das promoções;
 - Um container de cards a respeitos dos destinos.
-![print](app/assets/images/printpag1.png)
+![print](modelagem_dados/conceitual.png)
 
 2. Na página de promoções foi criado:
    - Um carrosel com as principais promoções;
    - Um container de cards com as promoções.
-![print](app/assets/images/printPag2.png)   
+![print](modelagem_dados/logico.png)   
 
 3. Na página de destinos foi criado:
 - Cards com destinos nacionais;
