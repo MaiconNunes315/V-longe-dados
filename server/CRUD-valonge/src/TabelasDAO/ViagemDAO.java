@@ -34,6 +34,7 @@ public class ViagemDAO {
 			pstm.setDouble(8, viagem.calculaPrecoTotal());
 			pstm.setInt(9, viagem.getPossuiHospedagem());
 			pstm.setInt(10, viagem.getHospedagem().getId());
+			
 			pstm.executeUpdate();
 
 			System.out.println("Viagem " + viagem.getDataEntrada() + " Cadastrado com sucesso");
@@ -159,58 +160,6 @@ public class ViagemDAO {
 		return viagem;
 	}
 	
-//	public Viagem searchViagemHospedagem(int id) {
-//		sql = "SELECT * FROM viagem A INNER JOIN usuario B ON A.id_usuario = B.id INNER JOIN destino C ON "
-//				+ "A.id_destino = C.id_destino INNER JOIN hospedagem H ON H.id_destino = C.id_destino"
-//				+ " WHERE id_viagem = " + id ;
-//		conexao = Conexao.conectar();
-//		ResultSet rset = null;
-//		Viagem viagem = new Viagem();
-//		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
-//
-//			rset = pstm.executeQuery();
-//			while (rset.next()) {
-//
-//				Destino destino = new Destino();
-//				Usuario usuario = new Usuario();
-//				Hospedagem hospedagem =  new Hospedagem();
-//				
-//				viagem.setId_viagem(rset.getInt("id_viagem"));
-//				viagem.setObservacoes(rset.getString("observacoes"));
-//				viagem.setPreco(rset.getDouble("preco"));
-//				viagem.setDesconto(rset.getInt("desconto"));
-//				viagem.setDataEntrada(rset.getTimestamp("dataEntrada").toLocalDateTime());
-//				viagem.setDataSaida(rset.getTimestamp("dataSaida").toLocalDateTime());
-//				viagem.setPrecoTotal(rset.getDouble("precoTotal"));
-//				viagem.setPossuiHospedagem(rset.getInt("possuiHospedagem"));
-//				destino.setId_destino(rset.getInt("id_destino"));
-//				destino.setCidade(rset.getString("cidade"));
-//				destino.setDetalhes(rset.getString("detalhes"));
-//				destino.setEstado(rset.getString("estado"));
-//				destino.setImg(rset.getString("img"));
-//				destino.setPais(rset.getString("pais"));
-//				usuario.setId(rset.getInt("id"));
-//				usuario.setNome(rset.getString("nome"));
-//				usuario.setRg(rset.getString("rg"));
-//				usuario.setEndereco(rset.getString("endereco"));
-//				usuario.setCpf(rset.getString("cpf"));
-//				usuario.setEstado(rset.getString("estado"));
-//				usuario.setDataNascimento(rset.getTimestamp("dataNascimento").toLocalDateTime().toLocalDate());
-//				usuario.setTelefone(rset.getString("telefone"));
-//				usuario.setCriado_em(rset.getTimestamp("criado_em").toLocalDateTime());
-//				usuario.setModificado_em(rset.getTimestamp("modificado_em").toLocalDateTime());
-//				usuario.setSenha(rset.getString("senha"));
-//				usuario.setEmail(rset.getString("email"));
-//				usuario.setTipoUsuario(rset.getString("tipoUsuario"));
-//				viagem.setPrecoDiaria(rset.getDouble("precoDiaria"));
-//				viagem.setDestino(destino);
-//				viagem.setUsuario(usuario);
-//			}
-//		} catch (SQLException e) {
-//			System.out.println(e.getMessage());
-//		}
-//		return viagem;
-//	}
 	
 	public void updateViagem(Viagem viagem, int id, String campo) {
 		conexao = Conexao.conectar();

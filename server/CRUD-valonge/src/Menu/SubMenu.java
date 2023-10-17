@@ -142,7 +142,7 @@ public class SubMenu {
 
 				break;
 			}
-			// inserir daddos de hospedagem
+			// inserir daddos de viagem
 			case 4: {
 
 				String[] dataViagem = { "* Dia *", "* Mês *", "* Ano *", "* Hora *", "* Minuto *" };
@@ -216,11 +216,13 @@ public class SubMenu {
 						}
 
 					} else {
-						
 						System.out.println("                                                       ");
 						System.out.println("*** Nenhuma hospedagem disponivel para esse destino ***");
 						System.out.println("                                                       ");
 					}
+				}else {
+					hospedagem.setId(0);
+					viagem.setHospedagem(hospedagem);
 				}
 
 				System.out.println("Digite alguma observações para viagem, tipo limite de bagagem, check-in...");
@@ -327,12 +329,12 @@ public class SubMenu {
 				break;
 			}
 			case 1: {
-
+				usuarioDao.readUsuarios();
 				System.out.println("Digite o id do usuário para alteração");
 				int id = inputNumber.nextInt();
 				System.out.println("Digite o campo que deseja fazer a alteração");
 				System.out.println("Campo disponiveis, nome, rg, endereco, cpf, "
-						+ "dataNascimento, telefone, senha, email, tipoUsuario");
+						+ "dataNascimento, telefone, senha, email, tipoUsuario, estado");
 				String campo = inputStr.nextLine();
 				switch (campo) {
 				case "nome": {
@@ -414,6 +416,7 @@ public class SubMenu {
 				break;
 			}
 			case 2: {
+				destinoDao.readDestino();
 				System.out.println("Digite o id do destino para alteração");
 				int id = inputNumber.nextInt();
 				System.out.println("Digite o campo que deseja fazer a alteração");
@@ -457,8 +460,8 @@ public class SubMenu {
 				break;
 			}
 			case 3: {
-
-				System.out.println("Digite o id do destino para alteração");
+			hospedagemDao.readHospedagem();
+				System.out.println("Digite o id da hospedagem para alteração");
 				int id = inputNumber.nextInt();
 				System.out.println("Digite o campo que deseja fazer a alteração");
 				System.out.println("Campo disponiveis, precoDiaria, nomeLocal,endereco,id_destino");
@@ -502,7 +505,7 @@ public class SubMenu {
 				int id = inputNumber.nextInt();				
 				System.out.println("Digite o campo que deseja fazer a alteração");
 				System.out.println(
-						"Campo disponiveis, obsevacoes, desconto,dataSaida,dataEntrada,preco");
+						"Campo disponiveis, observacoes, desconto,dataSaida,dataEntrada,preco");
 				String campo = inputStr.nextLine();
 				
 				switch (campo) {
@@ -573,7 +576,7 @@ public class SubMenu {
 				break;
 			}
 			case 5: {
-
+				contatoDao.readContato();
 				System.out.println("Digite o id do contato para alteração");
 				int id = inputNumber.nextInt();
 				System.out.println("Digite o campo que deseja fazer a alteração");
